@@ -84,7 +84,7 @@ void pushToSinric() {
 }
 
 //TriTone LED
-void activateCozy() {
+void activateWarm() {
   unsigned long now = millis();
   
   // Decide if the bulb has reset to 'Cool' or is still in 'Memory'
@@ -110,7 +110,7 @@ void activateCozy() {
   whiteState = true; 
   yellowState = false; 
   fanState = true;
-  currentMode = "cozy";
+  currentMode = "warm";
   
   setRelay(YELLOW_RELAY, 0);
   setRelay(FAN_RELAY, 1);
@@ -145,7 +145,7 @@ void toggleRoomMaster() {
 }
 
 void cycleModes() {
-  if (currentMode == "cozy") {
+  if (currentMode == "warm") {
     // If already Cozy, go to Focus
     whiteState = true; 
     yellowState = false; 
@@ -274,7 +274,7 @@ void handleCommand() {
   else if(cmd == "colorred") { irsend.sendNEC(0xF720DF, 32); }
   else if(cmd == "coloryellow") { irsend.sendNEC(0xF708F7, 32); }
   else if(cmd == "colorpurple") { irsend.sendNEC(0xF748B7, 32); }
-  else if(cmd == "cozy") { whiteState=false; yellowState=true; fanState=true; currentMode="cozy"; setRelay(WHITE_RELAY,0); setRelay(YELLOW_RELAY,1); setRelay(FAN_RELAY,1); irsend.sendNEC(0xF740BF,32); }
+  else if(cmd == "cozy") { whiteState=false; yellowState=true; fanState=true; currentMode="warm"; setRelay(WHITE_RELAY,0); setRelay(YELLOW_RELAY,1); setRelay(FAN_RELAY,1); irsend.sendNEC(0xF740BF,32); }
   else if(cmd == "focus") { whiteState=true; yellowState=false; fanState=true; currentMode="focus"; setRelay(WHITE_RELAY,1); setRelay(YELLOW_RELAY,0); setRelay(FAN_RELAY,1); irsend.sendNEC(0xF740BF,32); }
   else if(cmd == "night") { whiteState=false; yellowState=false; fanState=true; moodState=true; currentMode="night"; setRelay(WHITE_RELAY,0); setRelay(YELLOW_RELAY,0); setRelay(FAN_RELAY,1); irsend.sendNEC(0xF7C03F,32); }
   else if(cmd == "away") { whiteState=false; yellowState=false; fanState=false; moodState=false; currentMode="away"; setRelay(WHITE_RELAY,0); setRelay(YELLOW_RELAY,0); setRelay(FAN_RELAY,0); irsend.sendNEC(0xF740BF,32); }
