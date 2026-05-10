@@ -1,16 +1,3 @@
-//wireless hardware
-#include <ESP8266WiFi.h>
-#include <ESP8266WebServer.h>
-#include <ArduinoOTA.h>
-//google home
-#include <SinricPro.h>
-#include <SinricProSwitch.h>
-//remote
-#include <IRremoteESP8266.h>
-#include <IRrecv.h>
-#include <IRsend.h>
-#include <IRutils.h>
-
 /* ---------------- WIFI & CREDENTIALS ---------------- */
 const char* ssid = "ACT-ai";
 const char* password = "Wifiatharsh1*";
