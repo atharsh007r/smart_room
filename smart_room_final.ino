@@ -11,6 +11,9 @@
 #include <IRsend.h>
 #include <IRutils.h>
 
+#include <AC>
+#include <AC REMOTE>
+
 /* ---------------- WIFI & CREDENTIALS ---------------- */
 const char* ssid = "ACT-ai";
 const char* password = "Wifiatharsh1*";
@@ -397,3 +400,5 @@ void loop() {
     irrecv.resume();
   }
 }
+
+I am adding a section to enable AC
